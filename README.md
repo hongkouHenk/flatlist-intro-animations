@@ -26,11 +26,11 @@ npm install flatlist-intro-animations
 ```python
 import React, { useState, useEffect} from 'react';
 
-iimport { AnimatedFlatList, AnimationType } from 'flatlist-intro-animations';
+import { AnimatedFlatList, AnimationType } from 'flatlist-intro-animations';
 
 import MyCustomItem from './MyCustomItem';
 
-import { DATA } from './yourDataSource';
+import DATA from './yourDataSource';
 
 const Fade: React.FC<ScreenProps> = ({ navigation }) => {
   return (
