@@ -1,5 +1,10 @@
 import React from 'react';
-import { FlatList, ListRenderItemInfo } from 'react-native';
+import {
+  FlatList,
+  ListRenderItemInfo,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from 'react-native';
 
 import {
   SlideFromBottomAnimatedItem,
@@ -16,6 +21,13 @@ interface Props {
   animationType: AnimationType;
   animationDuration?: number;
   focused?: boolean;
+  flatlistRef?:
+    | ((instance: FlatList<object> | null) => void)
+    | React.RefObject<FlatList<object>>;
+  onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
+  refreshing?: boolean;
+  onRefresh?: () => void;
+  keyExtractor?: (item: object, index: number) => string;
 }
 
 const AnimatedFlatList: React.FC<Props> = ({
@@ -24,6 +36,11 @@ const AnimatedFlatList: React.FC<Props> = ({
   animationType,
   animationDuration,
   focused,
+  flatlistRef,
+  onScroll,
+  refreshing,
+  onRefresh,
+  keyExtractor,
 }) => {
   const handleRenderItem: any = (args: ListRenderItemInfo<any>) => {
     switch (animationType) {
@@ -76,9 +93,13 @@ const AnimatedFlatList: React.FC<Props> = ({
 
   return (
     <FlatList
+      ref={flatlistRef}
       data={data}
       renderItem={handleRenderItem}
-      keyExtractor={(item, index) => index.toString()}
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+      onScroll={onScroll}
+      keyExtractor={keyExtractor}
     />
   );
 };

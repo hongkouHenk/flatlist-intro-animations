@@ -22,7 +22,7 @@
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
     "react-native-web": "~0.11.7",
-    "flatlist-intro-animations": "/Users/henkcorporaal/Projects/npm/flatlist-animations/flatlist-intro-animations/flatlist-intro-animations-1.0.0.tgz"
+    "flatlist-intro-animations": "/Users/henkcorporaal/Projects/npm/flatlist-animations/flatlist-intro-animations/flatlist-intro-animations-1.0.2.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

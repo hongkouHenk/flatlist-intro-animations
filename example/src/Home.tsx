@@ -45,6 +45,7 @@ const FromRight: React.FC<ScreenProps> = ({ navigation }) => {
       renderItem={({ item }) => <MyCustomItem item={item} />}
       animationType={AnimationType.SlideFromRight}
       focused={focused}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 };
@@ -73,6 +74,7 @@ const FromBottom: React.FC<ScreenProps> = ({ navigation }) => {
       renderItem={({ item }) => <MyCustomItem item={item} />}
       animationType={AnimationType.SlideFromBottom}
       focused={focused}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 };
@@ -102,6 +104,7 @@ const Fade: React.FC<ScreenProps> = ({ navigation }) => {
       animationType={AnimationType.Fade}
       animationDuration={1000}
       focused={focused}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 };
@@ -131,6 +134,7 @@ const Rotate: React.FC<ScreenProps> = ({ navigation }) => {
       animationType={AnimationType.Rotate}
       animationDuration={700}
       focused={focused}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 };
@@ -159,6 +163,7 @@ const Dive: React.FC<ScreenProps> = ({ navigation }) => {
       renderItem={({ item }) => <MyCustomItem item={item} />}
       animationType={AnimationType.Dive}
       focused={focused}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 };

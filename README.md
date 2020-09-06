@@ -83,7 +83,26 @@ Only applicable to `timing` animation types. Sets the duration of the animation 
 
 Can be applied to reset the animation value to original state. Useful for rendering FlatList inside TabBar screens. (See example.)
 
-> `required:` nO | `type:` boolean
+> `required:` NO | `type:` boolean
+
+#### `flatlistRef`
+
+Can be applied to get access to FlatList methods.
+
+> `required:` NO | `type:` -
+
+#### `FlatList props`
+
+The component currently supports the following FlatList props:
+
+- onScroll,
+- refreshing,
+- onRefresh,
+- keyExtractor,
+
+I'll update soon with more.
+
+> `required:` NO | `type:` -
 
 ## License
 

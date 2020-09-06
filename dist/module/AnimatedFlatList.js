@@ -7,7 +7,12 @@ const AnimatedFlatList = ({
   renderItem,
   animationType,
   animationDuration,
-  focused
+  focused,
+  flatlistRef,
+  onScroll,
+  refreshing,
+  onRefresh,
+  keyExtractor
 }) => {
   const handleRenderItem = args => {
     switch (animationType) {
@@ -54,9 +59,13 @@ const AnimatedFlatList = ({
   };
 
   return /*#__PURE__*/React.createElement(FlatList, {
+    ref: flatlistRef,
     data: data,
     renderItem: handleRenderItem,
-    keyExtractor: (item, index) => index.toString()
+    refreshing: refreshing,
+    onRefresh: onRefresh,
+    onScroll: onScroll,
+    keyExtractor: keyExtractor
   });
 };
 

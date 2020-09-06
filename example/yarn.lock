@@ -2795,9 +2795,9 @@ find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-"flatlist-intro-animations@file:../flatlist-intro-animations-1.0.0.tgz":
-  version "1.0.0"
-  resolved "file:../flatlist-intro-animations-1.0.0.tgz#c49d82bfe489ddc3cc194d02a0bbfbc4ec4892e5"
+"flatlist-intro-animations@file:../flatlist-intro-animations-1.0.2.tgz":
+  version "1.0.2"
+  resolved "file:../flatlist-intro-animations-1.0.2.tgz#ac4f3cbe6c1ca96fca0532b34b25beb5209d185e"
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
