@@ -7,9 +7,17 @@ const AnimatedFlatList = ({
   renderItem,
   animationType,
   animationDuration,
-  focused,
+  focused = true,
   flatlistRef,
+  contentContainerStyle,
+  scrollIndicatorInsets,
+  ListEmptyComponent,
+  ListHeaderComponent,
+  ListFooterComponent,
+  numColumns,
   onScroll,
+  onViewableItemsChanged,
+  viewabilityConfig,
   refreshing,
   onRefresh,
   keyExtractor
@@ -60,11 +68,19 @@ const AnimatedFlatList = ({
 
   return /*#__PURE__*/React.createElement(FlatList, {
     ref: flatlistRef,
+    contentContainerStyle: contentContainerStyle,
+    scrollIndicatorInsets: scrollIndicatorInsets,
     data: data,
     renderItem: handleRenderItem,
     refreshing: refreshing,
     onRefresh: onRefresh,
+    ListEmptyComponent: ListEmptyComponent,
+    ListHeaderComponent: ListHeaderComponent,
+    ListFooterComponent: ListFooterComponent,
+    numColumns: numColumns,
     onScroll: onScroll,
+    onViewableItemsChanged: onViewableItemsChanged,
+    viewabilityConfig: viewabilityConfig,
     keyExtractor: keyExtractor
   });
 };
