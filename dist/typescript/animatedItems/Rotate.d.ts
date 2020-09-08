@@ -1,8 +1,8 @@
 import React from 'react';
-import { ListRenderItem, ListRenderItemInfo } from 'react-native';
+import { ListRenderItem, SectionListRenderItem } from 'react-native';
 interface Props {
-    renderItem: ListRenderItem<any>;
-    args: ListRenderItemInfo<any>;
+    renderItem: ListRenderItem<any> | SectionListRenderItem<object>;
+    args: any;
     animationDuration?: number;
     focused?: boolean;
 }

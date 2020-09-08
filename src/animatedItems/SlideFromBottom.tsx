@@ -3,12 +3,13 @@ import {
   Animated,
   Dimensions,
   ListRenderItem,
+  SectionListRenderItem,
   ListRenderItemInfo,
 } from 'react-native';
 
 interface Props {
-  renderItem: ListRenderItem<any>;
-  args: ListRenderItemInfo<any>;
+  renderItem: ListRenderItem<any> | SectionListRenderItem<object>;
+  args: any;
   focused?: boolean;
 }
 

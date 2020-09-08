@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-  FlatList,
-  ListRenderItemInfo,
+  SectionList,
+  SectionListRenderItem,
   NativeSyntheticEvent,
   NativeScrollEvent,
   StyleProp,
   ViewStyle,
   Insets,
   ViewToken,
+  SectionListData,
 } from 'react-native';
 
 import {
@@ -20,20 +21,22 @@ import {
 } from '.';
 
 interface Props {
-  data: Array<any>;
-  renderItem: (item: any) => JSX.Element;
+  sections: ReadonlyArray<SectionListData<object>>;
+  renderItem: SectionListRenderItem<object>;
+  renderSectionHeader?: (info: {
+    section: SectionListData<any>;
+  }) => React.ReactElement;
   animationType: AnimationType;
   animationDuration?: number;
   focused?: boolean;
   contentContainerStyle?: StyleProp<ViewStyle>;
   scrollIndicatorInsets?: Insets;
-  flatlistRef?:
-    | ((instance: FlatList<object> | null) => void)
-    | React.RefObject<FlatList<object>>;
+  sectionlistRef?:
+    | ((instance: SectionList<object> | null) => void)
+    | React.RefObject<SectionList<object>>;
   ListEmptyComponent?: React.ComponentType<any> | React.ReactElement;
   ListHeaderComponent?: React.ComponentType<any> | React.ReactElement;
   ListFooterComponent?: React.ComponentType<any> | React.ReactElement;
-  numColumns?: number;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
   onViewableItemsChanged?: (info: {
     viewableItems: ViewToken[];
@@ -45,19 +48,19 @@ interface Props {
   keyExtractor?: (item: object, index: number) => string;
 }
 
-const AnimatedFlatList: React.FC<Props> = ({
-  data,
+const AnimatedSectionList: React.FC<Props> = ({
+  sections,
   renderItem,
+  renderSectionHeader,
   animationType,
   animationDuration,
   focused = true,
-  flatlistRef,
+  sectionlistRef,
   contentContainerStyle,
   scrollIndicatorInsets,
   ListEmptyComponent,
   ListHeaderComponent,
   ListFooterComponent,
-  numColumns,
   onScroll,
   onViewableItemsChanged,
   viewabilityConfig,
@@ -65,7 +68,7 @@ const AnimatedFlatList: React.FC<Props> = ({
   onRefresh,
   keyExtractor,
 }) => {
-  const handleRenderItem: any = (args: ListRenderItemInfo<any>) => {
+  const handleRenderItem: any = (args: any) => {
     switch (animationType) {
       case AnimationType.SlideFromBottom:
         return (
@@ -117,18 +120,18 @@ const AnimatedFlatList: React.FC<Props> = ({
   };
 
   return (
-    <FlatList
-      ref={flatlistRef}
+    <SectionList
+      ref={sectionlistRef}
       contentContainerStyle={contentContainerStyle}
       scrollIndicatorInsets={scrollIndicatorInsets}
-      data={data}
+      sections={sections}
       renderItem={handleRenderItem}
+      renderSectionHeader={renderSectionHeader}
       refreshing={refreshing}
       onRefresh={onRefresh}
       ListEmptyComponent={ListEmptyComponent}
       ListHeaderComponent={ListHeaderComponent}
       ListFooterComponent={ListFooterComponent}
-      numColumns={numColumns}
       onScroll={onScroll}
       onViewableItemsChanged={onViewableItemsChanged}
       viewabilityConfig={viewabilityConfig}
@@ -137,4 +140,4 @@ const AnimatedFlatList: React.FC<Props> = ({
   );
 };
 
-export default AnimatedFlatList;
+export default AnimatedSectionList;

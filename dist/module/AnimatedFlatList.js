@@ -61,6 +61,9 @@ const AnimatedFlatList = ({
           focused: focused
         });
 
+      case AnimationType.None:
+        return renderItem(args);
+
       default:
         return;
     }

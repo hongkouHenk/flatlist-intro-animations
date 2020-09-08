@@ -3,12 +3,13 @@ import {
   Animated,
   ListRenderItem,
   ListRenderItemInfo,
+  SectionListRenderItem,
   Easing,
 } from 'react-native';
 
 interface Props {
-  renderItem: ListRenderItem<any>;
-  args: ListRenderItemInfo<any>;
+  renderItem: ListRenderItem<any> | SectionListRenderItem<object>;
+  args: any;
   animationDuration?: number;
   focused?: boolean;
 }

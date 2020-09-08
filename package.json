@@ -1,6 +1,6 @@
 {
   "name": "flatlist-intro-animations",
-  "version": "1.2.2",
+  "version": "1.3.1",
   "description": "A custom FlatList component that offers 5 types of item intro animations",
   "main": "dist/module/index.js",
   "react-native": "dist/module/index.js",

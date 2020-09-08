@@ -70,6 +70,7 @@ The component currently offers 5 types of intro animations to choose from;
 - AnimationType.Fade (timing)
 - AnimationType.Rotate (timing)
 - AnimationType.Dive (spring)
+- AnimationType.None (no animation)
 
 > `required:` YES | `type:` enum
 
